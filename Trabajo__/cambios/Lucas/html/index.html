@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Factoria Artesanal - Tu Mercado de Confianza</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="stylesNosotros.css" />
+    <script src="script.js" defer></script>
+    <script src="scriptNosotros.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR SUPERIOR -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo La Factoria Artesanal" />
+        <div class="factoria">La Factoria Artesanal</div>
+      </div>
+      <nav class="nav-links">
+        <div class="menu-right">
+          <div class="menu-icon notificaciones">
+            <img src="img/icono_notificacion.png" alt="Notificaciones" />
+            <span>Notificaciones</span>
+          </div>
+          <div class="menu-icon cuenta" onclick="window.location.href='login.html'">
+            <img src="img/icono_cuenta.png" alt="Mi cuenta" />
+            <span>Mi cuenta</span>
+          </div>
+          <div class="menu-icon carrito">
+            <img src="img/icono_carrito.png" alt="Carrito" />
+            <span>Carrito</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- SUB NAVBAR ENLACES -->
+    <div class="sub-navbar">
+      <ul class="sub-menu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Lo mas Vendido</a></li>
+        <li><a href="#descuentos">Descuentos</a></li>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li>
+          <div class="buscador">
+            <input type="text" id="buscar" placeholder="Buscar productos..." />
+            <button onclick="buscarProductos()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Categorias -->
+    <section id="categorias" class="seccion clara">
+      <h2></h2>
+      <div class="galery">
+        <div class="categoria" data-imagenes='["img/accesorios.png", "img/tejidos.png", "img/artesanias.png"]'>
+          <h3 class="titulo-categoria">Decoración</h3>
+          <img src="img/decoracion.png"/>
+          <button>Ver categoría</button>
+        </div>
+        <div class="categoria" data-imagenes='["img/decoracion.png", "img/tejidos.png", "img/artesanias.png"]'>
+          <h3 class="titulo-categoria">Accesorios</h3>
+          <img src="img/accesorios.png"/>
+          <button>Ver categoría</button>
+        </div>
+        <div class="categoria" data-imagenes='["img/decoracion.png", "img/artesanias.png", "img/fe.png"]'>
+          <h3 class="titulo-categoria">Tejidos</h3>
+          <img src="img/tejidos.png" />
+          <button>Ver Categoria</button>
+        </div>
+        <div class="categoria" data-imagenes='["img/decoracion.png", "img/accesorios.png", "img/fe.png"]'>
+          <h3 class="titulo-categoria">Artesanias</h3>
+          <img src="img/artesanias.png"/>
+          <button>Ver Categoria</button>
+        </div>
+        <div class="categoria" data-imagenes='["img/decoracion.png", "img/accesorios.png", "img/tejidos.png"]'>
+          <h3 class="titulo-categoria">Objetos de Fe</h3>
+          <img src="img/fe.png"/>
+          <button>Ver Categoria</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Carrusel -->
+    <section id="descuentos" class="carrusel">
+      <div class="slides">
+        <img
+          src="../imagenes_zopo/zopo_horizontal_001.jpg"
+          alt="Carrusel 1"
+          class="active"
+        />
+        <img src="../imagenes_zopo/zopo_horizontal_004.jpg" alt="Carrusel 2" />
+        <img src="../imagenes_zopo/zopo_horizontal_013.jpg" alt="Carrusel 3" />
+        <img src="../imagenes_zopo/zopo_horizontal_018.jpg" alt="Carrusel 4" />
+        <img src="../imagenes_zopo/zopo_horizontal_019.jpg" alt="Carrusel 5" />
+      </div>
+      <div class="carrusel-controles">
+        <button class="prev" onclick="cambiarSlide(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="next" onclick="cambiarSlide(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. Productos Destacados -->
+    <section id="productos" class="seccion clara">
+      <h2>Productos Destacados</h2>
+      <div class="galeria">
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_002.jpg" alt="Producto 1" />
+          <h3>Producto 1</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_003.jpg" alt="Producto 2" />
+          <h3>Producto 2</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_005.jpg" alt="Producto 3" />
+          <h3>Producto 3</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_006.jpg" alt="Producto 4" />
+          <h3>Producto 4</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_007.jpg" alt="Producto 5" />
+          <h3>Producto 5</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_008.jpg" alt="Producto 6" />
+          <h3>Producto 6</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_009.jpg" alt="Producto 7" />
+          <h3>Producto 7</h3>
+          <button>Comprar</button>
+        </div>
+        <div class="producto">
+          <img src="../imagenes_zopo/zopo_vertical_010.jpg" alt="Producto 8" />
+          <h3>Producto 8</h3>
+          <button>Comprar</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 4. Formulario de contacto -->
+    <div class="contacto">
+      <h2>Contact Form</h2>
+      <form action="" id="contact-form">
+        <label for="name">Nombre: </label>
+        <input type="text" id="name" name="name" required />
+        <label for="phone">Telefono: </label>
+        <input type="tel" id="phone" name="phone" required />
+        <label for="message">Mensaje: </label>
+        <input type="text" id="message" name="message" />
+        <button type="submit">Enviar:</button>
+      </form>
+    </div>
+
+    <!-- 5. Sobre nosotros -->
+    <section id="nosotros" class="seccion madera">
+      <div class="containerNosotros">
+        <img src="imagenNosotros/carro.png" id="imagen" alt="Imagen animada" />
+        <div id="marco">
+          <img
+            src="imagenNosotros/marco.png"
+            id="imagen-marco"
+            alt="Marco decorativo"
+          />
+          <div id="cuadro">
+            <h2>Sobre nosotros</h2>
+            <p>
+              En La Factoria Artesanal, ubicada en Sopo, trabajamos para llevar
+              los mejores productos del campo y la ciudad a todos los hogares.
+              Con atención cálida y precios justos, hacemos del mercado una
+              experiencia para todos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Sopo Market. Todos los derechos reservados.</p>
+      <div class="social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </footer>
+  </body>
+</html>

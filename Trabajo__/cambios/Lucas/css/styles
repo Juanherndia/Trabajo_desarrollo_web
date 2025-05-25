@@ -1,0 +1,161 @@
+/* --- ESTILO GENERAL --- */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  background-color: #fff4e1; /* Fondo general */
+  color: #4b2e2b; /* Texto principal */
+  line-height: 1.6;
+  padding-top: 120px; /* Para navbar fija y sub-navbar pegada */
+}
+
+/* --- NAVBAR SUPERIOR --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #38697c; /* Color principal actual */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 80px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 45px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logo img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 70px;
+  margin-left: 20%;
+  border-radius: 80px;
+  object-fit: cover;
+}
+
+.factoria {
+  margin-left: 15px;
+  font-size: 1.5em;
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-right: 200px;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.menu-icon img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  filter: invert(1);
+}
+
+/* --- SUB NAVBAR PEGADA AL NAVBAR --- */
+.sub-navbar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background-color: #d3bda1; /* madera clara de tu paleta */
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+  margin: 0;
+  height: 40px;
+}
+
+.sub-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.sub-menu li {
+  display: flex;
+  align-items: center;
+}
+
+.sub-menu li a {
+  display: block;
+  padding: 10px 30px 10px 0;
+  color: #4b2e2b;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  transition: color 0.3s, background 0.3s;
+  margin-left: 0;
+}
+
+.sub-menu li:first-child a {
+  padding-left: 10px;
+}
+
+.sub-menu li a:hover {
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  color: #38697c;
+}
+
+/* Buscador dentro del sub-navbar */
+.buscador {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.buscador input {
+  padding: 0.5em;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #e0c097;
+  width: 180px;
+  font-size: 1em;
+}
+
+.buscador button {
+  padding: 0.5em;
+  background-color: #d7263d;
+  border: none;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.buscador button:hover {
+  background-color: #f25c54;
+}

@@ -1,0 +1,47 @@
+// Función para buscar productos
+function buscarProductos() {
+  const input = document.getElementById("buscar");
+  const filtro = input.value.toLowerCase();
+  const productos = document.querySelectorAll(".producto");
+
+  productos.forEach((p) => {
+    const nombre = p.querySelector("h3").innerText.toLowerCase();
+    p.style.display = nombre.includes(filtro) ? "" : "none";
+  });
+}
+
+document.querySelectorAll('.categoria').forEach(categoria => {
+  const imagenes = JSON.parse(categoria.dataset.imagenes);
+  const imgTag = categoria.querySelector('img');
+  const imagenOriginal = imgTag.src; // Guardamos la imagen original mostrada
+  const backgroundOriginal = categoria.style.backgroundColor; // Guardamos el color original
+  let index = 0;
+  let interval = null;
+
+  categoria.addEventListener('mouseenter', () => {
+    categoria.style.backgroundColor = '#e0d1ba'; // Cambia a un color claro o el que prefieras
+
+    interval = setInterval(() => {
+      index = (index + 1) % imagenes.length;
+      imgTag.style.opacity = 0;
+      setTimeout(() => {
+        imgTag.src = imagenes[index];
+        imgTag.style.opacity = 1;
+      }, 250);
+    }, 1000);
+  });
+
+  categoria.addEventListener('mouseleave', () => {
+    clearInterval(interval);
+    index = 0;
+
+    categoria.style.backgroundColor = backgroundOriginal; // Restaurar color original
+
+    imgTag.style.opacity = 0;
+    setTimeout(() => {
+      imgTag.src = imagenOriginal; // Volver a la imagen original
+      imgTag.style.opacity = 1;
+    }, 250);
+  });
+});
+
