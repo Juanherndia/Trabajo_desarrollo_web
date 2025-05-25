@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">LA FACTORIA</div>
+    <nav>
+      <a href="index.html">SEGUIR COMPRANDO</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="carrito" class="seccion clara">
+      <h2>Carrito de Compras</h2>
+      <div id="lista-carrito"></div>
+      <div id="total"></div>
+      <div class="acciones">
+        <button onclick="vaciarCarrito()"> Vaciar carrito</button>
+        <button onclick="simularPago()"> Pagar</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sopo Market. Todos los derechos reservados.</p>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const contenedor = document.getElementById("lista-carrito");
+      const totalElemento = document.getElementById("total");
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      function renderCarrito() {
+        contenedor.innerHTML = "";
+        if (carrito.length === 0) {
+          contenedor.innerHTML = "<p>Tu carrito está vacío.</p>";
+          totalElemento.textContent = "";
+          return;
+        }
+
+        carrito.forEach((item, index) => {
+          if (!item.cantidad) item.cantidad = 1;
+
+          const div = document.createElement("div");
+          div.classList.add("producto-carrito");
+
+          div.innerHTML = `
+            <img src="${item.imagen || 'https://via.placeholder.com/100'}" alt="${item.nombre}">
+            <div class="detalle">
+              <h3>${item.nombre}</h3>
+              <p>${item.descripcion || 'Sin descripción disponible.'}</p>
+              <p>Precio: $<span class="precio">${item.precio || 0}</span></p>
+              <div class="cantidad">
+                <button onclick="actualizarCantidad(${index}, -1)">−</button>
+                <span id="cantidad-${index}">${item.cantidad}</span>
+                <button onclick="actualizarCantidad(${index}, 1)">+</button>
+                <button onclick="eliminarProducto(${index})"> Eliminar</button>
+              </div>
+              <p class="subtotal">Subtotal: $<span id="subtotal-${index}">${item.precio * item.cantidad}</span></p>
+            </div>
+          `;
+          contenedor.appendChild(div);
+        });
+
+        calcularTotal();
+      }
+
+      window.actualizarCantidad = function (index, cambio) {
+        carrito[index].cantidad = Math.max(1, (carrito[index].cantidad || 1) + cambio);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        renderCarrito();
+      };
+
+      window.eliminarProducto = function (index) {
+        carrito.splice(index, 1);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        renderCarrito();
+      };
+
+      window.vaciarCarrito = function () {
+        if (confirm("¿Estás seguro de vaciar el carrito?")) {
+          carrito = [];
+          localStorage.removeItem("carrito");
+          renderCarrito();
+        }
+      };
+
+      window.simularPago = function () {
+        if (carrito.length === 0) {
+          alert("Tu carrito está vacío.");
+          return;
+        }
+        alert("Gracias por tu compra. Tu pedido ha sido procesado.");
+        carrito = [];
+        localStorage.removeItem("carrito");
+        renderCarrito();
+      };
+
+      function calcularTotal() {
+        const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+        totalElemento.textContent = `Total: $${total}`;
+      }
+
+      renderCarrito();
+    });
+  </script>
+
+</body>
+</html>

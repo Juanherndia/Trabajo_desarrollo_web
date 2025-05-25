@@ -1,0 +1,166 @@
+
+.containerNosotros {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#imagen {
+  position: absolute;
+  top: 35%;
+  left: -300px; /* más grande, sale desde más lejos */
+  width: 300px;
+  z-index: 3;
+  margin-top: 80px; /* aparece al centro del cuadro */
+}
+
+#marco {
+  position: absolute;
+  top: 25%;
+  left: 50%; /* fuera de pantalla */
+  width: 700px;
+  height: 500px;
+  z-index: 1;
+  transform: translateX(-200%); /* empieza fuera de pantalla por la izquierda */
+  transition: transform 1.5s ease-out;
+}
+
+#imagen-marco {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#cuadro {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  width: 60%;
+  height: 80%;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+
+#cuadro h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #D72638; /* Rojo */
+}
+
+#cuadro p {
+  font-size: 1.25rem;
+  color: #4E342E; /* Texto cacao */
+}
+
+/*Carrusel 1*/
+.carrusel-container {
+  overflow: hidden;
+  padding: 8px 0;
+  background-color: #d3bda1;
+}
+
+.carrusel {
+  white-space: nowrap;
+}
+
+.cinta {
+  display: inline-flex;
+  animation: mover 60s linear infinite;
+  animation-direction: reverse;
+}
+
+.cinta a {
+  display: inline-block;
+}
+
+.cinta img {
+  width: 600px;
+  height: 360px;
+  margin: 0 8px;
+  object-fit: cover;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/*Carrusel 2*/
+.carrusel2-container {
+  overflow: hidden;
+  padding: 8px 0;
+  background-color: #d3bda1;
+}
+
+.carrusel2 {
+  white-space: nowrap;
+}
+
+.cinta2 {
+  display: inline-flex;
+  animation: mover 50s linear infinite;
+}
+
+.cinta2 a {
+  display: inline-block;
+}
+
+.cinta2 img {
+  width: 400px;
+  height: 240px;
+  margin: 0 4px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+/*Carrusel 3*/
+.carrusel3-container {
+  overflow: hidden;
+  padding: 8px 0;
+  background: linear-gradient(to bottom, #d3bda1 70%, #a8c686 100%)
+}
+
+.carrusel3 {
+  white-space: nowrap;
+}
+
+.cinta3 {
+  display: inline-flex;
+  animation: mover 30s linear infinite;
+  animation-direction: reverse;
+}
+
+.cinta3 a {
+  display: inline-block;
+}
+
+.cinta3 img {
+  width: 200px;
+  height: 120px;
+  margin: 0 4px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
